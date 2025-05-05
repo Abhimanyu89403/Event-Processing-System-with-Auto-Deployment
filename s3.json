@@ -1,0 +1,49 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Create An S3 Bucket",
+    "Resources": {
+        "MyS3Bucket": {
+            "MyS3ReadOnlyRole": {
+                "Type": "AWS::IAM::Role",
+                "Properties": {
+                    "RoleName": "S3ReadOnlyRole",
+                    "AssumeRolePolicyDocument": {
+                        "Version": "2012-10-17",
+                        "Statement": [
+                            {
+                                "Sid": "Statement1",
+                                "Effect": "Allow",
+                                "Principal": {
+                                    "Service": "s3.amazonaws.com"
+                                },
+                                "Action": "sts:AssumeRole"
+                            }
+                        ]
+                    }
+                },
+                "ManagedPolicyARN": "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+
+            },
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": "EPs3",
+                "AccessControl": "Private",
+                "VersioningConfiguration": {
+                    "Status": "Enabled"
+                },
+                "Role": {
+                    "Fn::GetAtt": [
+                        "Mys3ReadOnlyRole",
+                        "Arn"
+                    ]
+                },
+                "Tags": [
+                    {
+                        "Key": "Dev",
+                        "Value": "First"
+                    }
+                ]
+            }
+        }
+    }
+}

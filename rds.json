@@ -1,0 +1,57 @@
+{
+    "AWSTemplateFormatVersion": "2019-09-09",
+    "Description": "Create an MYSQL_RDS Instance",
+    "Resources": {
+        "MyRDSWriteAccessRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "MyRDSWriteAccessRole",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-09-09",
+                    "Statement": [
+                        {
+                            "Sid": "Statement3",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "RDS.amazonaws.com"
+                            },
+                            "Action": "sts.AssumeRole"
+                        }
+                    ]
+                }
+            },
+            "ManagedPolicyARN": "arm::aws::iam::aws:policy/service-role/AWSRDSBasicWriteAccessRole"
+        },
+        "MyDBInstance": {
+            "Type": "AWS::RDS::DBInstance",
+            "Properties": {
+                "Engine": "MySQL",
+                "EngineVersion": "MySQL 8.0.41",
+                "Templates": "Dev/Test",
+                "DbInstanceIdentifier": "database-1",
+                "MasterUsername": "manyu",
+                "MasterPassword": "*****",
+                "PublicallyAccessible": false,
+                "Storage": [
+                    {
+                        "StorageType": "Provisioned IOPS SSD",
+                        "AllocatedStorage": 400,
+                        "ProvisionedIOPS": 3000
+                    }
+                ],
+                "Connectivity": [
+                    {
+                        "ComputeResource": "Connect to an Ec2 Instance",
+                        "Ec2Instance": "db.ec2"
+                    }
+                ],
+                "TagSpecification": [
+                    {
+                        "key": "project2",
+                        "value": "try2"
+                    }
+                ]
+            }
+        }
+    }
+}
