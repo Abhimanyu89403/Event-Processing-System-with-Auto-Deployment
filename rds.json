@@ -20,7 +20,7 @@
                     ]
                 }
             },
-            "ManagedPolicyARN": "arm::aws::iam::aws:policy/service-role/AWSRDSBasicWriteAccessRole"
+            "ManagedPolicyARN": "arn::aws::iam::aws:policy/service-role/AWSRDSBasicWriteAccessRole"
         },
         "MyDBInstance": {
             "Type": "AWS::RDS::DBInstance",
@@ -48,7 +48,7 @@
                 "TagSpecification": [
                     {
                         "key": "project2",
-                        "value": "try2"
+                        "Value": "try2"
                     }
                 ]
             }
