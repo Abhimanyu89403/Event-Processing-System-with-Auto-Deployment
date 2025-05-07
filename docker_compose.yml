@@ -1,0 +1,29 @@
+name: node
+networks:
+  nodenet:
+    driver: bridge
+
+services:
+  node: 
+    image: dockerfile.node
+    restart: on-failure
+    ports:
+      - 80:3000
+    volumes:
+      - node: /nodedata
+
+  mysql:
+    image: dockerfile.mysql
+    restart: on-failure
+    ports: 
+      - 8080: 3306
+    volumes:
+      - db: /dbdata
+    environment:
+      - MYSQL_DATABASE: create_events.sql
+        MYSQL_USER: Abhi89403
+        MYSQL_PASSWORD: *****
+
+volumes:
+  node:
+  db:

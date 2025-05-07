@@ -1,0 +1,6 @@
+FROM node/18
+WORKDIR /app
+LABEL maintainer="dev"
+COPY fe_code.html .
+CMD [ "node" "indedx.js" ]
+EXPOSE 3000
