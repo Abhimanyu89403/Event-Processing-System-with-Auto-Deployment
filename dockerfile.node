@@ -4,4 +4,7 @@ LABEL maintainer="dev"
 COPY fe_code.html .
 CMD [ "node" "indedx.js" ]
 EXPOSE 3000
+<<<<<<< HEAD
 RUN npm install net-tools
+=======
+>>>>>>> scripts
