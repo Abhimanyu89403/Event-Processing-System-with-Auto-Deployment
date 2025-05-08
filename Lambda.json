@@ -39,3 +39,6 @@
         }
     }
 }
+
+//aws configure
+//aws cloudformation create-stack \ --stack-name lambda-stack \ --template-body file://infra/lambda-temlate.json\

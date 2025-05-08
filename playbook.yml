@@ -23,3 +23,19 @@
         name: docker
         state: started
         enabled: yes
+
+    - name: start and enable "docker_compose_"
+      service:
+        name: docker_compose_path
+        state: started
+        enabled: yes
+
+    - name: clone a git repo 
+      git: 
+        repo: https://github.com/Abhimanyu89403/Event-Processing-System-with-Auto-Deployment.git
+        dest: /root/apps
+
+
+# ansible-playbook --check playbook.yml  (dry run)
+# ansible-playbook  -i inventory.ini playbook.yml
+

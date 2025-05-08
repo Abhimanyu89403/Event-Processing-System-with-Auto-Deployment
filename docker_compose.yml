@@ -27,3 +27,7 @@ services:
 volumes:
   node:
   db:
+
+
+  # docker-compose up -d
+  

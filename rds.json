@@ -55,3 +55,6 @@
         }
     }
 }
+
+//aws configure
+// aws cloudformation create-stack \ stack-name rds.template \ --template-body file://infra/rds.template.json \

@@ -47,3 +47,7 @@
         }
     }
 }
+
+//code deployment
+//aws configure
+//aws cloudformation create-stack \ --stack-name s3-stack \ -template-body file://infra/s3.template.json\

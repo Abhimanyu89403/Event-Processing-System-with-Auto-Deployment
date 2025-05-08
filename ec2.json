@@ -31,3 +31,9 @@
         }
     }
 }
+
+
+
+// code deployment
+// aws configure
+// aws cloudformation create-stack \ --stack-name ec2-stack \ --template-body file://infra/ec2.template.json \
