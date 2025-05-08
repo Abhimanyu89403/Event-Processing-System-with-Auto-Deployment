@@ -5,12 +5,12 @@ networks:
 
 services:
   node: 
-    image: dockerfile.node
+    image: dockerfile.python
     restart: on-failure
     ports:
       - 80:3000
     volumes:
-      - node: /nodedata
+      - python: /pydata
 
   mysql:
     image: dockerfile.mysql
@@ -25,9 +25,9 @@ services:
         MYSQL_PASSWORD: *****
 
 volumes:
-  node:
+  python:
   db:
 
 
   # docker-compose up -d
-  
+

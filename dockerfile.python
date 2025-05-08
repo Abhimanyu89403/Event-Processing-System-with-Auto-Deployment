@@ -1,0 +1,9 @@
+FROM python:latest
+
+WORKDIR /app
+LABEL maintainer="dev"
+COPY fe_code.py .
+CMD [ "python" ,"fe_code.py" ]
+EXPOSE 3000
+
+# docker build -t nodeapp . v1 
